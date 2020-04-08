@@ -17,7 +17,7 @@ class Transfer
   end
   def execute_transaction
     if self.valid?
-      @sender.deposit(-@amount)
+      @sender.deposit(0-@amount)
       @receiver.deposit( @amount)
       @status = "complete"
     else
@@ -27,8 +27,9 @@ class Transfer
   end
   def reverse_transfer
     if @status == "complete"
-      @sender.deposit(-@amount)
-      @receiver.deposit( @amount)
+      @sender.deposit(@amount)
+      @receiver.deposit(0-@amount)
+      @status = "reversed"
     
   end
 end
