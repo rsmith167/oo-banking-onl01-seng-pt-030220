@@ -20,7 +20,7 @@ def valid?
     return false
   end
 end
-def close account
+def close_account
   @status = "closed"
 end
 
