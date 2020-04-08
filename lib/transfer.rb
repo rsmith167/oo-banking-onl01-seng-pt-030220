@@ -5,7 +5,7 @@ class Transfer
   def initialize(sender, receiver, amount)
     @sender = sender
     @receiver = receiver
-    status = "pending"
+    @status = "pending"
     @amount = amount
   end
   def valid?
@@ -19,7 +19,7 @@ class Transfer
     if self.valid?
       @sender.balance -= @amount
       @receiver.balance += @amount
-      status = "executed"
+      @status = "executed"
     end
   end
   def reverse_transaction
