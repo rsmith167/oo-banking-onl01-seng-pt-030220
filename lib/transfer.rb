@@ -15,6 +15,13 @@ class Transfer
       FALSE
     end
   end
-  def execute_transacction
+  def execute_transaction
+    if self.valid?
+      @sender.balance -= @amount
+      @receiver.balance += @amount
+      status = "executed"
+  end
+  def reverse_transaction
     
+  end
 end
